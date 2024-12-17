@@ -11,4 +11,6 @@ def article_list(req):
 
 def article_details(req,slug):
     print({slug})
-    return HttpResponse( {slug})
+    # return HttpResponse( {slug})
+    article = Article.objects.get(slug=slug)
+    return render(req,'articles/article_detail.html', {'article': article})
