@@ -1,22 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article List</title>
-    <link rel="stylesheet" href="{% static 'styles.css'%}">
-</head>
-<body>
+{% block content %}
    <div class="articles">
     {%for article in articles%}
     <div class="article">
-        <h2> <a href="#">{{article.title}}</a></h2>
+        <h2> <a href="{%url 'article_details' slug=article.slug%}">{{article.title}}</a></h2>
         <p>{{article.snippet}}</p>
         <p>{{article.date}}</p>
     </div>
     {% endfor %}
    </div>
-</body>
-</html>
+{% endblock %}
