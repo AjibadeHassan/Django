@@ -3,7 +3,11 @@
 <div class="wrapper">
 {% block content %}
 <h1>Create Content</h1>
-
+<form action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+  <button type="submit" value="create">Create</button>
+</form>
 
 
 
