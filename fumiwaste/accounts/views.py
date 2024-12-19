@@ -25,3 +25,10 @@ def login_view(req):
     else:
        form = AuthenticationForm()
     return render(req,'accounts/login.html',{'form': form})
+
+
+def logout_view(req):
+    if (req.method == 'POST'):
+        logout(req)
+        # print('user logged out succesfully')
+        return redirect('articles:list')

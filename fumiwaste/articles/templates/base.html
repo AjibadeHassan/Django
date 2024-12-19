@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="{% static 'styles.css'%}">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li>
+                <form action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
     <div class="wrapper">
 {%  block content %}
 
